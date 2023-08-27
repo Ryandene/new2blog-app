@@ -14,6 +14,13 @@ const initialState = {
             content: 'This is a sample blog post content.',
             date: new Date(),
         },
+        {
+            id: '3', // You can generate a unique ID here, or use a library like uuid
+            title: ' A Guide to Experiencing the Maldives',
+            author: 'Jesica Pete',
+            content: 'Dive 🥽 into a world of vibrant coral gardens, teeming with marine life. The Maldives boasts some of the world\'s best dive sites, where you can swim alongside manta rays, whale sharks, and colourful fish.',
+            date: new Date(),
+        },
     ],
 };
 

@@ -6,6 +6,7 @@ import Contact from './components/Contact';
 import CreateBlog from './components/CreateBlog';
 import BlogList from './components/BlogList';
 import UpdateBlog from './components/UpdateBlog';
+import BlogDetails from './components/BlogDetails';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -49,8 +50,9 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/createBlog" element={<CreateBlog />} />
-        <Route path="/blogList" element={<BlogList />} />
+        <Route path="/blogList" element={<BlogList title="Blog List" />} />
         <Route path="/updateBlog/:blogId" element={<UpdateBlog />} />
+        <Route path='/blogDetails/:blogId' element={<BlogDetails />}></Route>
 
         {/* Add more routes here */}
       </Routes>
