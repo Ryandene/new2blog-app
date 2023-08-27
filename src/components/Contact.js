@@ -38,6 +38,7 @@ const Contact = () => {
                 </div>
                 <button type="submit" className="btn btn-primary">Send Inquiry</button>
             </form>
+            <br /><br />
         </div>
     );
 };

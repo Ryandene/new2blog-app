@@ -12,6 +12,11 @@ const BlogListItem = ({ blog }) => {
         navigate(`/updateBlog/${blog.id}`);
     };
 
+    const handleViewPost = () => {
+        handleScrollToTop();
+        navigate(`/blogDetails/${blog.id}`);
+    };
+
     // create dispatch instance to use blog actions
     const dispatch = useDispatch();
 
@@ -19,23 +24,39 @@ const BlogListItem = ({ blog }) => {
         dispatch(deleteBlog(blog.id));
     };
 
+    const handleScrollToTop = () => {
+        window.scrollTo(
+            {
+                top: 0,
+                behavior: 'smooth'
+            }
+        );
+    }
+
     return (
         <li key={blog.id}>
-            <h3>{blog.title}</h3>
-            <p>{blog.author}</p>
+            <h2>{blog.title}</h2>
+            <p><strong>{blog.author}</strong></p>
             <p>{blog.content}</p>
             <p>Date: {blog.date.toDateString()}</p>
+            <button
+                className="btn btn-success"
+                onClick={handleViewPost}>
+                View
+            </button>
+            <span >  </span>
             <button
                 className="btn btn-primary"
                 onClick={handleUpdateClick}>
                 Edit
             </button>
+            <span >  </span>
             <button
                 className="btn btn-danger"
                 onClick={handleDelete}>
                 Delete Post
             </button>
-
+            <br /><br />
         </li>
     );
 }

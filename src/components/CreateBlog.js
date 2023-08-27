@@ -72,6 +72,7 @@ const CreateBlog = () => {
                     />
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
+                <br /><br />
             </form>
         </div>
     );
