@@ -14,7 +14,8 @@ const BlogListItem = ({ blog }) => {
 
     const handleViewPost = () => {
         handleScrollToTop();
-        navigate(`/blogDetails/${blog.id}`);
+        navigate(`/viewpost/${blog.id}`);
+
     };
 
     // create dispatch instance to use blog actions

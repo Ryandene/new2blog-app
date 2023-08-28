@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import PopUpMessage from './PopUpMessage';
 
 import { addBlog } from '../Redux/Actions/BlogActions'
 
@@ -70,8 +71,17 @@ const CreateBlog = () => {
                         onChange={(e) => setBlog({ ...blog, content: e.target.value })}
                         required
                     />
+
+
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+
+
+
+                <div>
+                    <button type="submit" className="btn btn-primary" >Submit</button>
+                    <br /><br />
+                    <PopUpMessage />
+                </div>
                 <br /><br />
             </form>
         </div>

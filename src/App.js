@@ -7,6 +7,8 @@ import CreateBlog from './components/CreateBlog';
 import BlogList from './components/BlogList';
 import UpdateBlog from './components/UpdateBlog';
 import BlogDetails from './components/BlogDetails';
+import ViewPost from './components/ViewPost';
+//import PopUpMessage from './components/PopUpMessage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -40,6 +42,9 @@ const App = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/blogList">View Posts</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/viewpost">View Post</Link>
+              </li>
             </ul>
             <Link className="btn btn-primary" to="/createBlog">Write Now</Link>
           </div>
@@ -51,6 +56,11 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/createBlog" element={<CreateBlog />} />
         <Route path="/blogList" element={<BlogList title="Blog List" />} />
+
+        <Route path="/viewpost" element={<ViewPost title="View Post" />} />
+
+        <Route path="/viewpost/:blogId" element={<ViewPost />} />
+
         <Route path="/updateBlog/:blogId" element={<UpdateBlog />} />
         <Route path='/blogDetails/:blogId' element={<BlogDetails />}></Route>
 

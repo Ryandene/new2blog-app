@@ -1,10 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import BlogList from './BlogList';
 
 
-const BlogDetails = () => {
+const ViewPost = () => {
     const { blogId } = useParams();
     const blogList = useSelector(state => state.blog.blogList);
 
@@ -15,7 +14,7 @@ const BlogDetails = () => {
     const navigate = useNavigate();
 
     const handleBack = () => {
-        navigate('/blogList');
+        navigate('/bloglist');
     };
 
     return (
@@ -30,10 +29,10 @@ const BlogDetails = () => {
                 onClick={handleBack}>
                 Go to feed
             </button>
-            <br /><br />
-            <BlogList title="Other blogs" />
+
+
         </div>
     );
 }
 
-export default BlogDetails;
+export default ViewPost;
