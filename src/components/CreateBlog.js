@@ -2,19 +2,40 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import PopUpMessage from './PopUpMessage';
+import { useNavigate } from 'react-router-dom';
 
-import { addBlog } from '../Redux/Actions/BlogActions'
+import { addBlog } from '../Redux/Actions/BlogActions';
 
 import BlogModel from '../models/Blog';
+import Modal from 'react-modal';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 const CreateBlog = () => {
 
     // state variable to maintain blog input
     const [blog, setBlog] = useState(BlogModel);
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    const openModal = () => {
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+        handleBack();
+    };
+
     // create dispatch instance to use blog actions
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate('/bloglist');
+    };
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -33,7 +54,13 @@ const CreateBlog = () => {
         setBlog(BlogModel);
 
         console.log('Submitted Blog:', newBlog);
-    };
+
+        openModal();
+
+
+
+
+    }
 
     return (
         <div className="container mt-5">
@@ -74,18 +101,25 @@ const CreateBlog = () => {
 
 
                 </div>
-
-
-
                 <div>
-                    <button type="submit" className="btn btn-primary" >Submit</button>
+                    <button className="btn btn-primary">Submit</button>
                     <br /><br />
-                    <PopUpMessage />
+                    {/* <PopUpMessage /> */}
                 </div>
                 <br /><br />
             </form>
+            <Modal
+                isOpen={isOpen}
+                onRequestClose={closeModal}
+                contentLabel="Popup Message"
+            >
+                <h2></h2>
+                <p>Post Submitted</p>
+                <button className="btn btn-primary" onClick={closeModal}>Close</button>
+            </Modal>
         </div>
     );
-};
+}
+
 
 export default CreateBlog;
